@@ -22,12 +22,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build
+      - name: Build Spring Boot fat jar
+        run: ./gradlew bootJar
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
           app-name: url-shortener-app-sj-drd7ayctcjctb3d6
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: build/libs/*.jar
+          package: build/libs/*SNAPSHOT.jar
