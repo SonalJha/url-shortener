@@ -14,7 +14,7 @@ public class UrlController {
     public UrlController(UrlService service) {
         this.service = service;
     }
-
+// test
     @PostMapping("/shorten")
     public ResponseEntity<ShortUrl> shorten(@RequestParam String url) {
         ShortUrl shortUrl = service.createShortUrl(url);
